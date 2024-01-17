@@ -2,8 +2,8 @@ version: '3.4'
 
 services:
   jed:
-    # image: engrmnasirilyas716/jedwasmserver:latest
-    image: ${DOCKER_REGISTRY-}jedwasmserver
+    image: engrmnasirilyas716/jedwasmserver:latest
+    # image: ${DOCKER_REGISTRY-}jedwasmserver
     environment:
       DATABASE_HOST: mysql
       DATABASE_PORT: 3306
