@@ -4,4 +4,4 @@
   - password=password
 resources:
   - mysql-deployment.yml
-  #- myapp-deployment.yml
+  - myapp-deployment.yml
