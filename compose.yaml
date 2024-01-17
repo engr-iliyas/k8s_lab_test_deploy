@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  jed:
+    # image: engrmnasirilyas716/jedwasmserver:latest
+    image: ${DOCKER_REGISTRY-}jedwasmserver
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_NAME: imap
+      DATABASE_USER: root
+      DATABASE_PASSWORD: password
+    build:
+      context: .
+      dockerfile: JED.Wasm/Server/Dockerfile
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: imap
+    volumes:
+      - imap-mysql-data:/var/lib/mysql
+
+  proxy:
+    build: proxy
+    ports:
+      - 80:80
+    depends_on: 
+      - jed
+      - mysql
+
+volumes:
+  imap-mysql-data:
