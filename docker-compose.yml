@@ -24,13 +24,5 @@ services:
     volumes:
       - imap-mysql-data:/var/lib/mysql
 
-  proxy:
-    build: proxy
-    ports:
-      - 80:80
-    depends_on: 
-      - jed
-      - mysql
-
 volumes:
   imap-mysql-data:
