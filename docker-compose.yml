@@ -10,9 +10,6 @@ services:
       DATABASE_NAME: imap
       DATABASE_USER: root
       DATABASE_PASSWORD: password
-    build:
-      context: .
-      dockerfile: JED.Wasm/Server/Dockerfile
     depends_on:
       - mysql
 
